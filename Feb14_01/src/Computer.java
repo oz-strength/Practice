@@ -12,7 +12,7 @@ public class Computer {
         return (coin >= 1 && coin <= 20) ? coin : askHowManyCoin(u);
     }
 
-    public int shakeCoin(int userCoin){  // userCoin? 이게 어떻게 coin이랑 같아진건지 ??
+    public int shakeCoin(int userCoin){  // userCoin을 start메소드에서 가져온것 같은데 클래스 내에서는 어떤 메소드던 간에 자유롭게 가져다 쓸수 있는지 
         return cpu.nextInt(userCoin)+1;
     }
 
