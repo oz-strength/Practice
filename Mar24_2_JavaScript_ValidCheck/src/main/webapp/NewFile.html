@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<link rel="stylesheet" href="input2.css" type="text/css">
+<script type="text/javascript">
+	// alert('asdf');
+	
+	function checkValid(){
+		// alert('asdf');
+		let idInput = document.ff.idd; // document.form이름.input이름
+		let pwInput = document.ff.pwpw;
+		let pwchInput = document.ff.pwchk;
+		let footInput = document.ff.foot;
+		
+		// 필수검사
+		if (!idInput.value) {
+			alert('님 ID 안씀 ㅋ');
+			idInput.focus();			// 커서 갖다놓기
+			return false;
+		}else if(idInput.value.length < 5) {
+			alert('ID는 5 ~ 10 글자');
+			idInput.focus();
+			idInput.value="";	 // 기존에 썼던 내용 지우기
+			return false;
+		}
+		
+		
+		if (!pwInput.value) {
+			alert('님 PW 안씀 ㅋ');
+			pwInput.focus();			// 커서 갖다놓기
+			return false;
+		}else if(pwInput.value.length < 5) {
+			alert('PW는 5 ~ 15 글자');
+			pwInput.focus();
+			pwInput.value="";	 // 기존에 썼던 내용 지우기
+			return false;
+		}
+		
+		// PW랑 PW확인이 다르면 ? (실수 방지용)
+		if (pwInput.value != pwchInput.value) {
+			alert('입력한 비밀번호가 다릅니다');
+			pwInput.value="";	 // 기존에 썼던 내용 지우기
+			pwchkInput.value="";
+			pwInput.focus();
+			return false;
+		}  
+		
+		let numExist = false; // 숫자가 있는지 체크용 
+		let num = "369";
+		for (var i = 0; i < num.length; i++) {
+			if (pwInput.value.indexOf(num[i] != -1)) { // 값이 들어있다면
+				numExist = true;
+				break;
+			}
+		}
+		
+		let letterExist = false;
+		let letter = "hk";
+		
+		for (var i = 0; i< letter.length; i++) {
+			if (pwInput.value.indexOf(letter[i]) != -1) {
+				letterExist = true;
+				break;
+			}
+		}
+		
+		alert(numExist);
+		alert(letterExist);		// 두 조건을 만족하게 되면 둘다 true
+		
+		
+		// if문에서 !true = false -> 조건식은 안돌아감
+		if (!numExist || !letterExist) {
+			alert(numExist);
+			alert(letterExist);
+			alert("있어야 할게 없는데?");
+			return false;
+		}
+		
+		// 발사이즈 (숫자만) 
+		if (isNaN(footInput.value)) {
+			alert('숫자만 쓰라고~~');
+			footInput.value = "";
+			footInput.focus();
+			return false;
+		}
+		
+		return true;
+		
+	}
+	let s = "오늘은 금요일인데 너무 졸려요";
+	// alert(s);
+	// alert(s.length);					// 글자수
+	// alert(s[5]);						// 6번째 위치의 글자 
+	// alert(s.indexOf("졸"));			// "졸"은 몇번째 위치에 있는지
+	// alert(s.indexOf("악"));			// -1 ("악"이라는 값이 없어서 -1을 리턴)
+	// indexOf : 있으면 그 위치를 리턴, 없으면 -1을 리턴
+	// alert(s.indexOf("매우") != -1); 		//"매우"가 포함되어 있는지
+	// alert(s.indexOf("요"));				// 중복됐을 때는 처음 발견한 위치 리턴
+	
+	// PW에 3, 6, 9 중에 하나 이상 / h, k중에 하나 이상 들어가 있었으면...
+	
+	
+</script>
+</head>
+<body>
+	<!-- 
+		<form> 안에
+		id / pw / pw확인 / 발사이즈 / 버튼
+	 -->
+	 <form action="ㅋㅋㅋㅋㅋ" name="ff" onsubmit="return checkValid();"> 
+	 <div class="heading">
+	 	log-in page
+	 </div>
+	 	<div class="login">
+	 	ID : <input name="idd" maxlength="10" autofocus="autofocus"> <br>
+	 	PW : <input name="pwpw" maxlength="15"> <br>
+	 	PW Check: <input name="pwchk" maxlength="15"> <br>
+	 	Foot Size : <input name="foot"><br>
+	 	<button>Submit</button> <br>
+	 	</div>
+	 </form>
+</body>
+</html>

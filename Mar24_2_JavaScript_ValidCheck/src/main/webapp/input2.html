@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+// alert("하이");
+
+	function checkValid(){
+		let idInput = document.ff.idd; // document.form이름.input이름
+		let pwInput = document.ff.pwpw;
+		let pwchkInput = document.ff.pwchk;
+		let footInput = document.ff.foot;
+		
+		// 필수검사
+		if(!idInput.value){
+			alert('ID를 안썼습니다!');
+			idInput.focus();
+			return false;
+		} else if (idInput.value.length < 5) {
+			alert('ID는 5 ~ 10글자');
+			idInput.focus();
+			idInput.value="";
+			return false;
+		}
+		
+		if (pwInput.value != pwchkInput.value) {
+			alert('비밀번호가 다릅니다.');
+			pwInput.value = "";
+			pwchkInput.value="";
+			pwInput.focus();
+			return false;
+		}
+		
+		// PW에 3, 6, 9 중에 하나이상 / h,k중에 하나 이상 들어가 있었으면....
+		let numExist = false;
+		let num = "369";
+		for (let i = 0; i < num.length; i++) {
+			if (pwInput.value.indexOf(num[i]) != -1) {
+				numExist = true;
+				break;
+			}
+		}
+		
+		let letterExist = false;
+		let letter = "hk";
+		
+		for (let i = 0; i < letter.length; i++) {
+			if	(pwInput.value.indexOf(letter[i]) != -1) {
+				letterExist = true;
+				break;
+			}
+		}
+
+		if (!numExist || !letterExist) {
+			alert(numExist);
+			alert(letterExist);
+			alert('있어야 할게 없는데?');
+			return false;
+		}
+		
+		if (isNaN(footInput.value)) {
+			alert('숫자만 쓰세요!');
+			footInput.value="";
+			footInput.focus();
+			return false;
+		}
+		return true;
+	}
+		
+	// indexOf : 값이 있으면 그 위치를 리턴, 없으면 -1을 리턴
+	
+	
+	
+</script>
+</head>
+<body>
+	<!-- 
+		<form>안에
+				ID / PW / PW확인 / 발사이즈 / 버튼
+	 -->
+	<form action="ㅋㅋ" name="ff" onsubmit="return checkValid();">
+		ID <input name="idd" maxlength="10" autofocus="autofocus"> <p>
+		PW <input name="pwpw"> <P>
+		PW Check<input name="pwchk"> <P>
+		Foot Size<input name="foot"> <P>
+		<hr>
+		<button>Submit</button>
+		</table>
+	</form>
+
+</body>
+</html>

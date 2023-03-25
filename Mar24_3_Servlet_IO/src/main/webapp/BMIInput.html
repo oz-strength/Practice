@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet"  href="css/BMIInput.css" >
+<script type="text/javascript" src="js/Mar24_check.js"></script>
+<script type="text/javascript" src="js/OzValidChecker.js"></script>
+<script src="js/gradation.js"></script>
+<script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+</head>
+<body>
+	<div id="gradient" />
+	<!-- 
+		table + form 활용
+		bmi 검사 
+		이름 키 몸무게 + 사진  => 유효성 검사 
+		
+		=> 그 정보를 가지고 계산을 해서 결과를 출력 ...=> Servlet!
+	 -->
+
+	 
+	 <form name="bmiform" action="Output" method="post"  enctype="multipart/form-data"  onsubmit="return bmiCheck();" >
+	 <table class="bmiTable">
+	 	<tr>
+	 		<td id="title">BMI Test</td>
+	 	</tr>
+	 
+	 	<tr>
+	 		<td>name : <input type="text" name="name"  class="btl" placeholder="required input" ></td>
+	 	</tr>
+	 	<tr>
+	 		<td >height : <input type="text"  name="height"  class="btl" placeholder=" cm"></td>
+	 	</tr>
+	 	<tr>
+	 		<td >weight : <input type="text" name="weight"  class="btl" placeholder="kg"></td>
+	 	</tr>
+	 	<tr>
+	 		<td ><label for="files">Select file</label></td>
+	 		<td><input type="file" id="files" name="picture" ></td>
+	 	</tr>
+	 	
+	 	<tr>
+	 		<td class="check">
+				<button>calculate</button>
+			</td>
+	 	</tr>
+	 </table>
+	 </form>
+</body>
+</html>

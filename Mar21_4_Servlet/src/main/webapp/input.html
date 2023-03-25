@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 
+		ID
+		PW
+		성별
+		지역
+			<select>
+				<option></option>
+			</select>
+			취미 (복수 선택 가능)
+			자기소개 (textarea)
+			가입버튼 누르면 입력한 정보들이 새로운 페이지에서 출력
+			입력페이지 => css까지!
+	 -->
+	 <form action="Output" method="POST">
+		<table id="joinTbl" border='1'>
+			<tr>
+				<td colspan="2" align="center" class="joinTd">회원가입</td>
+			</tr>
+			<tr>
+				<td align="center" class="td1">ID</td>
+				<td>
+					<input name="id">  
+				</td>
+			</tr>
+			<tr>
+				<td>PW</td>
+				<td>
+					<input  name="pw">  
+				</td>
+			</tr>
+			<tr>
+				<td>성별</td>
+				<td>
+					<input name="gender" type="radio">남자
+					<input name="gender" type="radio">여자
+				</td>
+			</tr>
+			<tr>
+				<td>지역</td>
+				<td>
+					<select>
+						<option>서울</option>
+						<option>경기</option>
+						<option>인천</option>
+						<option>강원</option>
+						<option>충북</option>
+						<option>충남</option>
+						<option>전북</option>
+						<option>전남</option>
+						<option>경북</option>
+						<option>경남</option>
+						<option>제주</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>취미</td>
+				<td>
+					<input type="checkbox">게임
+					<input type="checkbox">골프
+					<input type="checkbox">운동<br>
+					<input type="checkbox">SNS
+					<input type="checkbox">맛집탐방
+					<input type="checkbox">방콕 
+				</td>
+			</tr>
+			<tr>
+				<td>자기소개</td>
+				<td>
+					<textarea></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="ceter">
+					<button>가입</button>
+				</td>
+			</tr>
+		</table>
+		
+	</form>
+	 
+</body>
+</html>
